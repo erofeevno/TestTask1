@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StringTreeContainer{
-    class TreeContainer{
+    public class TreeContainer{
         List<TreeElement> _startCharList;
 
         public TreeContainer() {
@@ -39,11 +39,12 @@ namespace StringTreeContainer{
                 });
 
             if (startElement == null) {
-                //AddWord(word);
                 return false;
             }
 
             else{
+                if (word.Length == 1 || startElement._canBeEnd)
+                    return true;
                 word = word.Substring(1);
                 return startElement.Search(word);
             }
