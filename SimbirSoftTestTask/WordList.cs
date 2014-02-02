@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace SimbirSoftTestTask {
 
-    class WordList {
+    public sealed class WordList: IDisposable {
 
         private string _filePath;
         private StreamReader _stream;
@@ -55,6 +55,12 @@ namespace SimbirSoftTestTask {
 
         public bool Search(string word) {
             return _list.Search(word);
+        }
+
+        public void Dispose()
+        {
+            if (_stream != null)
+                _stream.Close();
         }
     }
 }

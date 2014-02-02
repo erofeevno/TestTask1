@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.IO;
 
 namespace SimbirSoftTestTask {
-    class HtmlFile {
+    public class HtmlFile:IDisposable {
         private uint _linePerFile;
         private string _fileName;
         private uint _lineInCurrentFile = 0;
@@ -66,6 +66,14 @@ namespace SimbirSoftTestTask {
                 Console.WriteLine("Не удалось записать сторку в фаил" + e.Message);
                 IsOk = false;
             }
+        }
+
+        public void Dispose()
+        {
+            if (_stream != null)
+                _stream.Close();
+            if (_html != null)
+                _html.Close();
         }
     }
 }

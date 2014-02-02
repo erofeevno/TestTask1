@@ -36,7 +36,9 @@ namespace SimbirSoftTestTask {
                 return;
             }
 
-            SearchAndProcessing.Go(wl, tr, html);
+            Parser parser = new Parser();
+
+            parser.Go(wl, tr, html);
 
             html.Close();
         }

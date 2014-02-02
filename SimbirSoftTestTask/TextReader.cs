@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 namespace SimbirSoftTestTask {
-    class TextReader {
+    public class TextReader:IDisposable {
         private StreamReader _stream;
         private string _filePath;
         public bool IsOk { get; private set; }
@@ -50,6 +50,12 @@ namespace SimbirSoftTestTask {
 
         public bool Eof {
             get { return _stream.EndOfStream; }
+        }
+
+        public void Dispose()
+        {
+            if (_stream != null)
+                _stream.Close();
         }
     }
 }

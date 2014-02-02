@@ -5,11 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SimbirSoftTestTask{
-    static class SearchAndProcessing{
-        public static void Go(WordList wl, TextReader tx, HtmlFile html) {
+    public class Parser{
+
+        private char[] seporators;
+
+        public Parser() {
+
+            seporators = new char[] { '.', ',', ';', '?', '!', ':', '"', '*', '^', '#', '$', '%', '&', '/', ' ', '\n', '-', '(', ')' };
+        }
+
+        public void Go(WordList wl, TextReader tx, HtmlFile html) {
 
             string primeString;
-            char[] seporators = { '.', ',', ';', '?', '!', ':', '"', '*', '^', '#', '$', '%', '&', '/', ' ','\n','-','(',')' };
 
             while (!tx.Eof && wl.IsOk && tx.IsOk && html.IsOk) {
                 primeString = tx.GetNextString();

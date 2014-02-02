@@ -11,7 +11,7 @@ using SimbirSoftTestTask;
 using Tests;
 
 namespace Tests{
-    public class StringContainerTest{
+    public class Tests{
         [Test]
         public void Test1() {
             
